@@ -1,0 +1,7 @@
+---
+- name: Install python-lxml via yum
+  shell: 'yum install python-lxml -y'
+
+- name: Install python-jenkins via pip
+  pip:
+    name: python-jenkins

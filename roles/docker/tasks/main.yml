@@ -1,0 +1,16 @@
+---
+- name: Install Docker CE
+  shell: 'amazon-linux-extras install docker -y'
+- name: Install docker-py
+  pip:
+    name: docker-py
+
+- name: Create {{ docker_home }} directory
+  file:
+    path: "{{ docker_home }}"
+    state: directory
+
+- name: Set ec2-user to the docker group
+  sudo: yes
+  shell: 'usermod -a -G docker ec2-user'
+  
